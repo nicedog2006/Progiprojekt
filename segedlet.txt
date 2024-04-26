@@ -1,0 +1,11 @@
+1. Telefonkönyv listázása
+Kiirja a listában lévő neveket, és a hozzá tartozó telefonszámot.
+
+2. Új adat bevitele
+Új adatokat tudsz vele felvenni Egy nevet, egy telefonszámot hozzá, és egy email címet.
+
+3. Keresés név szerint
+Beírsz egy nevet, és a program kikeresi, az adatait arról a személyről.
+
+4. Kilépés
+Kiléptet a programból.
