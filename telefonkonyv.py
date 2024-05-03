@@ -16,14 +16,12 @@ def Ujadat_bevitel():
     print('----------------')
     print()
     kiiras = open('telefonkonyv.txt', 'a',encoding='utf-8')
-    benev = open('telefonkonyv.txt', 'r',encoding='utf-8')
-    benne=False
     print('Kérem írja be,')
     szoveg=input('A nevét:')
-    szoveg=input('Az email címét:')
-    print(szoveg, file=kiiras),
+    szoveg=input('Az email címét (valaki@gmail.com):')
+    print(szoveg, file=kiiras)
     szoveg=input('A telefonszámát (30/123 4567):')
-    print(szoveg, file=kiiras),
+    print(szoveg, file=kiiras)
     kiiras.close()
     
 def Keresnev():
@@ -38,12 +36,12 @@ def Keresnev():
         indito()
 
 def Segedlet():
-    print('segédlet')
+    print()
     beolvas = open('segedlet.txt','r', encoding='utf-8')
-    beolvas = open('telefonkonyv.txt','r', encoding='utf-8')
     sorok=beolvas.readlines()
-    for i in range(sorok):
+    for i in range(len(sorok)):
         print(sorok[i].strip())
+    beolvas.close
 
 def indito():
     print('Telefonkönyv')
