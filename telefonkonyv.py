@@ -15,10 +15,11 @@ def Telefonkonyv_listazas():
 def Ujadat_bevitel():
     print('----------------')
     print()
-    print('Kérem írja be:')
-    szoveg=input('A nevét:')
     kiiras = open('telefonkonyv.txt', 'a',encoding='utf-8')
-    print(szoveg, file=kiiras,)
+    benev = open('telefonkonyv.txt', 'r',encoding='utf-8')
+    benne=False
+    print('Kérem írja be,')
+    szoveg=input('A nevét:')
     szoveg=input('Az email címét:')
     print(szoveg, file=kiiras),
     szoveg=input('A telefonszámát (30/123 4567):')
@@ -33,7 +34,8 @@ def Keresnev():
     if nev in sorok:
         print('Benne van!')
     else:
-        print('nuh uh')
+        print('Nincs ilyen név a telefonkönyvben!')
+        indito()
 
 def Segedlet():
     print('segédlet')
@@ -43,40 +45,44 @@ def Segedlet():
     for i in range(sorok):
         print(sorok[i].strip())
 
+def indito():
+    print('Telefonkönyv')
+    print('-----------------------------------')
+    print('1. Telefonkönyv listázása')
+    print('2. Új adat bevitele')
+    print('3. Keresés név szerint')
+    print('4. Kilépés')
+    print('5. Segédlet')
+    print('-----------------------------------')
+    print('')
+    valasz=int(input('Válassz a fentiek közül egyet. (1-5-ig) :'))
 
-print('Telefonkönyv')
-print('-----------------------------------')
-print('1. Telefonkönyv listázása')
-print('2. Új adat bevitele')
-print('3. Keresés név szerint')
-print('4. Kilépés')
-print('5. Segédlet')
-print('-----------------------------------')
-print('')
-valasz=int(input('Válassz a fentiek közül egyet. (1-5-ig) :'))
+    if valasz==1:
+        print()
+        print('Telefonkönyv listázása')
+        Telefonkonyv_listazas()
+    elif valasz==2:
+        print()
+        print('Új adat bevitele')
+        Ujadat_bevitel()
+    elif valasz==3:
+        print()
+        print('Keresés név szerint')
+        Keresnev()
+    elif valasz==4:
+        print()
+        print('Kilépés')
+        print('„Ön kilépett a programból.')
+        exit()
+    elif valasz==5:
+        print()
+        print('Segédlet')
+        Segedlet()
+    else:
+        print()
+        print('Hibás menüpont választás!')
+        indito()
 
-if valasz==1:
-    print()
-    print('Telefonkönyv listázása')
-    Telefonkonyv_listazas()
-elif valasz==2:
-    print()
-    print('Új adat bevitele')
-    Ujadat_bevitel()
-elif valasz==3:
-    print()
-    print('Keresés név szerint')
-    Keresnev()
-elif valasz==4:
-    print()
-    print('Kilépés')
-    print('„Ön kilépett a programból.')
-    exit()
-elif valasz==5:
-    print()
-    print('Segédlet')
-    Segedlet()
-else:
-    print()
-    print('Hibás menüpont választás!')
 
+#Főeljárás
+indito()
