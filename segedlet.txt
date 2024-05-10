@@ -3,6 +3,7 @@ Kiirja a listában lévő neveket, és a hozzá tartozó telefonszámot.
 
 2. Új adat bevitele
 Új adatokat tudsz vele felvenni Egy nevet, egy telefonszámot hozzá, és egy email címet.
+(De csak abban az esetben vesz fel új adatot ha a beírt név nincs már benne a listában)
 
 3. Keresés név szerint
 Beírsz egy nevet, és a program kikeresi, az adatait arról a személyről.

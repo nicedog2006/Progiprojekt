@@ -16,24 +16,44 @@ def Ujadat_bevitel():
     print('----------------')
     print()
     kiiras = open('telefonkonyv.txt', 'a',encoding='utf-8')
+    beolvas = open('telefonkonyv.txt','r', encoding='utf-8')
+    sorok=beolvas.readlines()
     print('Kérem írja be,')
     szoveg=input('A nevét:')
+    for i in range(0,len(sorok),3):
+        if szoveg in sorok[i]:
+            print()
+            print('Van már ilyen név a telefonkönyvben!')
+            indito()
+        
+        else:
+            i=i+3
+    
+    print(szoveg, file=kiiras)
     szoveg=input('Az email címét (valaki@gmail.com):')
     print(szoveg, file=kiiras)
     szoveg=input('A telefonszámát (30/123 4567):')
     print(szoveg, file=kiiras)
     kiiras.close()
+    exit()
     
 def Keresnev():
     print('-------------------')
     nev= input('Kérem adja meg a keresett nevet:')
     beolvas = open('telefonkonyv.txt','r', encoding='utf-8')
     sorok=beolvas.readlines()
-    if nev in sorok:
-        print('Benne van!')
-    else:
-        print('Nincs ilyen név a telefonkönyvben!')
-        indito()
+    for i in range(0,len(sorok),3):
+        if nev in sorok[i]:
+            print()
+            print(f'| {sorok[i].strip()} | {sorok[i+2].strip()} | {sorok[i+1].strip()} |')
+            exit()
+        
+        else:
+            i=i+3
+    print('Nincs ilyen név a telefonkönyvben!')
+    indito()
+            
+
 
 def Segedlet():
     print()
